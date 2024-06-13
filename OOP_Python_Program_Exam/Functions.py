@@ -24,16 +24,16 @@ def for_one_menu():
             case 2:
                 animal_type='осел'
                 break
-            case 1:
+            case 3:
                 animal_type='верблюд'
                 break
-            case 1:
+            case 4:
                 animal_type='кот'
                 break
-            case 1:
+            case 5:
                 animal_type='собака'
                 break
-            case 1:
+            case 6:
                 animal_type='хомяк'
                 break
             case _:
@@ -41,13 +41,13 @@ def for_one_menu():
 
     while True:
         try:
-            day, month, year = input('Введите дату в формате ДД.ММ.ГГГГ =>').split('.')
+            day, month, year = input('Введите дату рождения в формате ДД.ММ.ГГГГ =>').split('.')
             birth_date= date(int(year), int(month), int(day))
             break
         except ValueError:
             print('Введенная дата не является корректной, попробуйте еще раз')
-    input_command= input("Перечислите команды, которые животные могут выполнять (через запятую),\n или нажмите "Н", чтобы оставить поле пустым => ")
-    if input_command.lower() in (nн):
+    input_command= input("Перечислите команды, которые животные могут выполнять (через запятую),\nили нажмите 'H', чтобы оставить поле пустым => ")
+    if input_command.strip().lower() in ("nн"):
           commands = None
     else: commands=[i.strip() for i in input_command.split(',') if i.isalpha()]
-    return (name, animal_type, birth_date, commands)
+    return name, animal_type, birth_date, commands
