@@ -1,3 +1,4 @@
+from Animal import Animal
 class Pets(Animal):
     pass
 

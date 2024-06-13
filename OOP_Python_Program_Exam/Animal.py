@@ -3,13 +3,15 @@ from datetime import date, datetime
 
 class Animal(ABC):
     
-    def __init__(self, name, type_animal, birth_date, commands=[]):
+    def __init__(self, name, type_animal, birth_date, commands=None):
         self.name = name
         self.type = type_animal
-        data=birth_date.split('.') # введите дату в формате дд.мм.ГГГГ
-        self.birth_date = date(int(data[2]),int(data[1]),int(data[0]))
-        self.commands=list(commands)
-        self.reestr=Count()
+        self.birth_date = birth_date
+        if commands is None:
+            self.commands=[]
+        else:
+            self.commands=list(commands)
+        
         
     @abstractmethod
     def __str__(self):
@@ -24,6 +26,4 @@ class Animal(ABC):
         pass
         
 
-class Count:
-    def __init__(self):
-        self.reestr_list=[]
+
