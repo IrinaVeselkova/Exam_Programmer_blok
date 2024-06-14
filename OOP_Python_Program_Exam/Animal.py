@@ -1,5 +1,5 @@
-from abc import ABC, abstractmethod
-from datetime import date, datetime
+from abc import ABC
+from datetime import  datetime
 
 class Animal(ABC):
     
@@ -13,15 +13,10 @@ class Animal(ABC):
         
         
     def __str__(self):
-        year_age=(datetime.now()-self.birth_date).days()//365 
+        year_age=(datetime.now()-self.birth_date).days()//365
         #дописать возраст в днях, если разница меньше месяца
         return f"Тип: {self.type}; кличка: {self.name}; возраст: {year_age} лет; знает команды: {',  '.join(self.commands)}"
     
-    def __add__(self, value):
-        pass 
-    
-    def __iadd__(self,value):
-        pass
-        
+           
 
 
