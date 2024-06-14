@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import datetime, date
 
 def for_one_menu():
     while True:
@@ -41,13 +41,28 @@ def for_one_menu():
 
     while True:
         try:
-            day, month, year = input('Введите дату рождения в формате ДД.ММ.ГГГГ =>').split('.')
-            birth_date= date(int(year), int(month), int(day))
+            data = input('Введите дату рождения в формате ДД.ММ.ГГГГ =>')
+            birth_date= datetime.strptime(data,'%d.%m.%Y')
             break
         except ValueError:
             print('Введенная дата не является корректной, попробуйте еще раз')
-    input_command= input("Перечислите команды, которые животные могут выполнять (через запятую),\nили нажмите 'H', чтобы оставить поле пустым => ")
-    if input_command.strip().lower() in ("nн"):
-          commands = None
+    input_command= input("Перечислите команды, которые животные могут выполнять (через запятую),\nили пропустите ввод, чтобы оставить поле пустым => ")
+    if input_command.strip()=='':
+        commands = None
     else: commands=[i.strip() for i in input_command.split(',') if i.isalpha()]
     return name, animal_type, birth_date, commands
+
+def menu():
+    print(f"Вы работаете с реестром домашних животных.\nВыберите пункт меню:\n{'*'*40}", end='')
+    print('''
+    1.Добавить в реестр новое животное\n
+    2.Показать реестр\n
+    3.Обучить животное новой команде\n
+    4.Удалить животное из реестра\n
+    5.Выйти из реестра'''+'\n'+'*'*40+'\n')
+    while True:
+        input_command=input("Пункт меню => ")
+        if input_command.strip().isdigit() and 1<=int(input_command)<=5:
+            return int(input_command)
+    
+    
