@@ -12,13 +12,19 @@ while True:
             print("Животное добавлено в реестр")
             if input("Перейти в меню? (Д/Н)").strip().lower() not in ('д', "y"):                           
                 break
-        case 2: 
-            pass
+        case 2:
+            print(f"В регистре находятся:\n{'*'*40}")
+            if len(animals_registry) == 0:
+                print("В реестре еще нет животных. Добавьте животных в реестр")
+            else: print(*animals_registry, sep='\n')
+            print(f"В регистре находятся:\n{'*'*40}")
         case 3:
             pass
         case 4:
             pass
         case 5:
+            pass
+        case 6: 
             print("До свидания! Хорошего дня!")
             break
         case _: 

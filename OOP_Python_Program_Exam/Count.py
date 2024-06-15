@@ -10,3 +10,7 @@ class Count:
             self.reestr_list.append(value)
         else:
             return NotImplemented
+    def __iter__ (self):
+        yield from self.reestr_list
+    def __len__(self):
+        return len(self.reestr_list)
