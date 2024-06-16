@@ -1,24 +1,25 @@
-from Count import Count
+from AnimalRegister import AnimalRegister
 from Pets import *
 from PackPets import *
 from Functions import *
 
-animals_registry=Count()
+animals_registry=AnimalRegister()
 while True:
     match menu():
-        case 1:
-            data=for_one_menu()
-            animals_registry.add(Cats(data[0],data[1],data[2],data[3]))
+        case 1: #1.Добавить в реестр
+            animals_registry.add(for_one_menu())
             print("Животное добавлено в реестр")
             if input("Перейти в меню? (Д/Н)").strip().lower() not in ('д', "y"):                           
                 break
-        case 2:
+        case 2: #2. Показать реестр
             print(f"В регистре находятся:\n{'*'*40}")
             if len(animals_registry) == 0:
                 print("В реестре еще нет животных. Добавьте животных в реестр")
             else: print(*animals_registry, sep='\n')
             print(f"В регистре находятся:\n{'*'*40}")
-        case 3:
+            if input("Перейти в меню? (Д/Н)").strip().lower() not in ('д', "y"):                           
+                break
+        case 3: #3. Обучить животное
             pass
         case 4:
             pass
