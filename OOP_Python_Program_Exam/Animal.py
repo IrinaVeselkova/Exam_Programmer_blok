@@ -4,25 +4,28 @@ from datetime import  datetime
 class Animal(ABC):
     
     def __init__(self,name, type_animal, birth_date, commands=None):
-        self.name = name
-        self.type = type_animal
-        self.birth_date = birth_date
-        self.commands=None
+        
+        self._name = name
+        self._type = type_animal
+        self._birth_date = birth_date
+        self._commands=None
         if not commands:
-            self.commands=[]
-        else: self.commands=list(commands)
+            self._commands=[]
+        else: self._commands=list(commands)
         
         
     def __str__(self):
-        year_age=(datetime.now()-self.birth_date).days//365
+        year_age=(datetime.now()-self._birth_date).days//365
         #дописать возраст в днях, если разница меньше месяца
-        return f"Тип: {super(self).__class__.__name__}; Подтип: {self.type}; кличка: {self.name}; возраст: {year_age} лет; знает команды: {',  '.join(self.commands)}"
+        return f"Тип: {type(self).mro()[1].__name__}; Подтип: {self._type}; кличка: {self._name}; возраст: {year_age} лет(года); знает команды: {',  '.join(self._commands)}"
     def get_name(self):
-        return self.name
+        return self._name
+    def get_type(self):
+        return self._type
     def get_commands(self):
-        return self.commands
+        return self._commands
     def set_commands(self,value):
-        if value not in self.commands:
-            self.commands.append(value)   
+        if value not in self._commands:
+            self._commands.append(value)   
 
 

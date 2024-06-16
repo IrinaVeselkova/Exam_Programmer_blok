@@ -1,7 +1,6 @@
 from Animal import Animal
 class PackPets(Animal):
-    def __repr__(self):
-        return self.__bases__[0].__name__
+   pass
 
 class Horses(PackPets):
     pass
