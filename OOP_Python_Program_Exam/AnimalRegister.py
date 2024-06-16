@@ -25,7 +25,7 @@ class AnimalRegister():
     def get_reestr_list(self):
         return self._reestr_list
     
-animals_registry=AnimalRegister()
+
     
         
             

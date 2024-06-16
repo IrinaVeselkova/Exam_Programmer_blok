@@ -21,7 +21,7 @@ def for_one_menu():
     input_command= input("Перечислите команды, которые животные могут выполнять (через запятую),\nили пропустите ввод, чтобы оставить поле пустым => ")
     if input_command.strip()=='':
         commands = None
-    else: commands=[i.strip() for i in input_command.split(',') if i.strip().isalpha()]
+    else: commands=[i.strip() for i in input_command.split(',')]
     return name, animal_type, birth_date, commands
 def choose_animal_type():
     animal_type=None
@@ -72,23 +72,23 @@ def menu():
         if input_command.strip().isdigit() and 1<=int(input_command)<=6:
             return int(input_command)
 
-def to_teach_animal_to_commands():
+def to_teach_animal_to_commands(register):
     name=input("Введите имя животного => ")
     animal_type=choose_animal_type()
-    commands = [i.strip() for i in input("Введите команду или список команд через запятую => ").strip().split(',') if i.strip().isalpha()]
+    commands = [i.strip() for i in input("Введите команду или список команд через запятую => ").strip().split(',')]
     if not commands:
          print('Поле с командами не может быть пустым')
          return
     count=0
-    for animal in AnimalRegister.animals_registry.get_reestr_list():
+    for animal in register.get_reestr_list():
          if animal.__class__.__name__ == animal_class_types[animal_type]:
             count+=1
             if animal.get_name().lower() == name.strip().lower():
                     for command in commands:
                         animal.set_commands(command)
-                    print("Команды добавлены")
+                    print("\nКоманды добавлены\n")
                     return 
-    print(f'{animal_class_types_declension[animal_type].capitalize()} с таким имененм не найдено.\nСначала добавьте животное или проверьте имя')
+    print(f'\n{animal_class_types_declension[animal_type].capitalize()} с таким имененм не найдено.\nСначала добавьте животное или проверьте имя\n')
                         
              
     

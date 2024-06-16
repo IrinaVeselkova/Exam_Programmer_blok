@@ -16,7 +16,7 @@ class Animal(ABC):
     def __str__(self):
         year_age=(datetime.now()-self.birth_date).days//365
         #дописать возраст в днях, если разница меньше месяца
-        return f"Тип: {self.type}; кличка: {self.name}; возраст: {year_age} лет; знает команды: {',  '.join(self.commands)}"
+        return f"Тип: {super(self).__class__.__name__}; Подтип: {self.type}; кличка: {self.name}; возраст: {year_age} лет; знает команды: {',  '.join(self.commands)}"
     def get_name(self):
         return self.name
     def get_commands(self):
