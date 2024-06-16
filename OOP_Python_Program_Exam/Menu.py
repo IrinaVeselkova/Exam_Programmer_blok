@@ -1,5 +1,5 @@
 from datetime import datetime
-
+import csv
 
 class Menu():
     animal_class_types={'лошадь':'Horses', 'осел':'Donkeys', 'верблюд': 'Camels', 'кот': 'Cats', 'собака': 'Dogs', 'хомяк': 'Hamsters'}
@@ -63,14 +63,15 @@ class Menu():
         return animal_type
     @staticmethod
     def menu():
-        print(f"Вы работаете с реестром домашних животных.\nВыберите пункт меню:\n{'*'*40}", end='')
+        print(f"\nВы работаете с реестром домашних животных.\nВыберите пункт меню:\n{'*'*40}", end='')
         print('''
-        1.Добавить в реестр новое животное\n
-        2.Показать реестр\n
-        3.Обучить животное новой команде\n
-        4.Удалить животное из реестра\n
-        5.Сохранить реестр в файл\n
-        6.Выйти из реестра'''+'\n'+'*'*40+'\n')
+    1.Добавить в реестр новое животное\n
+    2.Показать реестр\n
+    3.Обучить животное новой команде\n
+    4.Удалить животное из реестра\n
+    5.Сохранить реестр в файл\n
+    6.Выйти из реестра'''+'\n'+'*'*40+'\n')
+        
         while True:
             input_command=input("Пункт меню => ")
             if input_command.strip().isdigit() and 1<=int(input_command)<=6:
@@ -98,6 +99,12 @@ class Menu():
         name=input("Введите имя животного => ")
         animal_type=Menu.choose_animal_type()
         return name, animal_type
-                        
-             
-    
+    @staticmethod
+    def print_register_to_file(animal_register):
+        with open("My animal's register.csv", 'w', encoding='utf-8') as file:
+            columns=['Тип', 'Подтип','Имя животного', 'Дата рождения', 'Команды, которые умеет выполнять животное']
+            writer = csv.writer(file)
+            writer.writerow(columns)                 # запись заголовков
+            for animal in animal_register:                         # запись строк
+                 writer.writerow(animal.get_animal_list())
+        print("Данные записаны в файл My animal's register.csv")

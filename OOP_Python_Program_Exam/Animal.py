@@ -26,6 +26,8 @@ class Animal(ABC):
         return self._commands
     def set_commands(self,value):
         if value not in self._commands:
-            self._commands.append(value)   
+            self._commands.append(value) 
+    def get_animal_list(self):
+        return [type(self).mro()[1].__name__,self._type, self._name, self._birth_date, self._commands]
 
 

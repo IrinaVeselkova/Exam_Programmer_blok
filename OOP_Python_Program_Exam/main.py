@@ -30,7 +30,7 @@ while True:
         case 4: #4. Удалить животное из регистра
             del animals_registry[Menu.del_animal_from_register()]
         case 5: #5.Сохранить реестр в файл 
-            pass
+            Menu.print_register_to_file(animals_registry)
         case 6: #6. Выход из программы
             print("До свидания! Хорошего дня!")
             break
