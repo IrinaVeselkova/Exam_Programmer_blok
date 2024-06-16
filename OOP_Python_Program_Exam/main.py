@@ -28,7 +28,7 @@ while True:
         case 3: #3. Обучить животное
             Menu.to_teach_animal_to_commands(animals_registry)            
         case 4: #4. Удалить животное из регистра
-            pass
+            del animals_registry[Menu.del_animal_from_register()]
         case 5: #5.Сохранить реестр в файл 
             pass
         case 6: #6. Выход из программы

@@ -93,6 +93,11 @@ class Menu():
                         print("\nКоманды добавлены\n")
                         return 
         print(f'\n{Menu.animal_class_types_declension[animal_type].capitalize()} с таким имененм не найдено.\nСначала добавьте животное или проверьте имя\n')
+    @staticmethod
+    def del_animal_from_register():
+        name=input("Введите имя животного => ")
+        animal_type=Menu.choose_animal_type()
+        return name, animal_type
                         
              
     

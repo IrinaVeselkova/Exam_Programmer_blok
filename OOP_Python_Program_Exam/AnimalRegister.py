@@ -2,6 +2,7 @@ from PackPets import *
 from Pets import *
 
 class AnimalRegister():
+    
     def __init__(self):
         self._reestr_list=[]    
     def add(self, data):
@@ -29,6 +30,13 @@ class AnimalRegister():
         return len(self._reestr_list)
     def get_reestr_list(self):
         return self._reestr_list
+    def __delitem__(self, data):
+        for i,animal in enumerate(self._reestr_list):
+            if animal.get_name() == data[0] and animal.get_type()==data[1]:
+                del self._reestr_list[i]
+                print('Животное удалено из реестра')
+                return
+        print('Такого животного нет в реестре')
     
 
     
