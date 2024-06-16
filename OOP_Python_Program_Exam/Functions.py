@@ -1,6 +1,6 @@
 from datetime import datetime, date
 from AnimalRegister import AnimalRegister
-animal_class_types={'лошадь':Horses, 'осел':Donkeys, 'верблюд': Camels, 'кот': Cats, 'собака': Dogs, 'хомяк': Hamsters}
+animal_class_types={'лошадь':'Horses', 'осел':'Donkeys', 'верблюд': 'Camels', 'кот': 'Cats', 'собака': 'Dogs', 'хомяк': 'Hamsters'}
 animal_class_types_declension={'лошадь':'лошади', 'осел': 'осла', 'верблюд': 'верблюда', 'кот': 'кота', 'собака': 'собаки', 'хомяк': 'хомяка'}
 def for_one_menu():
     while True:
