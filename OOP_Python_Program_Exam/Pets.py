@@ -1,5 +1,6 @@
 from Animal import Animal
-class Pets(Animal):
+from abc import ABC
+class Pets(Animal,ABC):
     pass
 class Cats(Pets):
     pass

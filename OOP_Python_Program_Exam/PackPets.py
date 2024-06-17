@@ -1,5 +1,6 @@
 from Animal import Animal
-class PackPets(Animal):
+from abc import ABC
+class PackPets(Animal, ABC):
    pass
 
 class Horses(PackPets):
