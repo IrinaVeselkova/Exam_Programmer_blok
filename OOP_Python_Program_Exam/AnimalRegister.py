@@ -32,7 +32,7 @@ class AnimalRegister():
         return self._reestr_list
     def __delitem__(self, data):
         for i,animal in enumerate(self._reestr_list):
-            if animal.get_name() == data[0] and animal.get_type()==data[1]:
+            if animal.get_name().lower() == data[0].lower() and animal.get_type()==data[1]:
                 del self._reestr_list[i]
                 print('Животное удалено из реестра')
                 return
